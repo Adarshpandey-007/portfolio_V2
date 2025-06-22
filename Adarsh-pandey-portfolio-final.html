@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adarsh Pandey - Competitive Programmer & Developer</title>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="manifest" href="./manifest.webmanifest">
+    <meta name="theme-color" content="#10b981">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Adarsh Pandey</span>
+            </div>
+            <!-- Navigation menu and hamburger are now handled by JS for floating modern menu -->
+            <!-- Theme toggle button -->
+            <button id="theme-toggle" class="theme-toggle-btn" title="Toggle theme" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon" aria-hidden="true"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+            <div class="hero-container" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 3rem; min-height: 80vh;">
+                <!-- Left: Animated Code Window -->
+                <div class="hero-code-window" style="flex: 1 1 340px; max-width: 480px; min-width: 320px; display: flex; align-items: center; justify-content: center;">
+                    <div id="animated-code-window" style="width:100%; background: rgba(30,41,59,0.92); border-radius: 1.2em; box-shadow: 0 8px 32px rgba(16,24,40,0.18); padding: 2.2em 1.5em 1.5em 1.5em; position: relative; overflow: hidden;">
+                        <div style="display: flex; align-items: center; gap: 0.5em; margin-bottom: 1.2em;">
+                            <span style="width: 12px; height: 12px; background: #ef4444; border-radius: 50%; display: inline-block;"></span>
+                            <span style="width: 12px; height: 12px; background: #facc15; border-radius: 50%; display: inline-block;"></span>
+                            <span style="width: 12px; height: 12px; background: #22c55e; border-radius: 50%; display: inline-block;"></span>
+                        </div>
+                        <pre id="hero-code-animation" style="margin:0; font-family: 'Fira Mono', 'JetBrains Mono', monospace; font-size: 1.08em; color: #a5f3fc; background: none; min-height: 8em; white-space: pre-wrap;"></pre>
+                    </div>
+                </div>
+                <!-- Right: Profile & Info -->
+                <div class="hero-profile" style="flex: 1 1 320px; max-width: 420px; min-width: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.2em;">
+                    <div style="position: relative;">
+                        <img src="me.png" alt="Adarsh Pandey" style="width: 120px; height: 120px; border-radius: 50%; box-shadow: 0 4px 32px rgba(16,185,129,0.18); object-fit: cover; border: 4px solid var(--accent-green, #10b981); background: #fff;">
+                        <span style="position: absolute; bottom: 0; right: 0; background: var(--accent-green, #10b981); color: #fff; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 1.2em; box-shadow: 0 2px 8px rgba(16,185,129,0.18);"><i class="fas fa-code"></i></span>
+                    </div>
+                    <h1 class="hero-title" style="font-size: 2.2em; font-weight: 800; margin: 0; color: #222; text-align: center;">Adarsh Pandey</h1>
+                    <h2 class="hero-subtitle" style="font-size: 1.2em; color: var(--accent-green, #10b981); font-family: var(--font-mono); margin: 0 0 0.5em 0; text-align: center;">
+                        <span id="hero-typed-role"></span><span class="cursor" style="color: var(--accent-green, #10b981);">|</span>
+                    </h2>
+                    <p class="hero-description" style="color: #334155; font-size: 1.08em; text-align: center; max-width: 340px; margin: 0 auto 1em auto;">
+                        Full Stack Developer & Competitive Programmer passionate about building impactful products, solving real-world problems, and writing clean, efficient code.
+                    </p>
+                    <div class="hero-buttons" style="display: flex; gap: 1em; flex-wrap: wrap; justify-content: center;">
+                        <a href="resume.j.pdf" class="btn btn-primary" target="_blank" rel="noopener">View Resume</a>
+                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                        <a href="https://github.com/Adarshpandey-007" class="btn btn-secondary" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-modern">
+                    <div class="about-modern-main">
+                        <div class="about-modern-avatar">
+                            <img src="/me.png" alt="Adarsh Pandey" />
+                        </div>
+                        <div class="about-modern-text">
+                            <h3>👋 Hi, I'm <span style="color:var(--accent-green)">Adarsh Pandey</span></h3>
+                            <p>B.Tech CSE @ Vishveshwarya Group of Institutions (2022–2026)</p>
+                            <p>Full Stack Developer & Competitive Programmer passionate about building impactful products, solving real-world problems, and writing clean, efficient code.</p>
+                            <ul class="about-modern-list">
+                                <li><i class="fas fa-code"></i> 600+ coding problems solved</li>
+                                <li><i class="fas fa-trophy"></i> 65+ contests participated</li>
+                                <li><i class="fas fa-project-diagram"></i> 15+ projects built</li>
+                                <li><i class="fas fa-users"></i> Vice President, <b>CodeX</b> Coding Club</li>
+                                <li><i class="fas fa-lightbulb"></i> Hackathon winner & AI/ML researcher</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="about-modern-side">
+                        <div class="about-modern-card">
+                            <h4><i class="fas fa-rocket"></i> Quick Facts</h4>
+                            <ul>
+                                <li><i class="fas fa-graduation-cap"></i> B.Tech CSE, 2022–2026</li>
+                                <li><i class="fas fa-map-marker-alt"></i> Greater Noida, India</li>
+                                <li><i class="fas fa-envelope"></i> adarshpandey6364@gmail.com</li>
+                                <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/adarsh-pandey-314074241" target="_blank">LinkedIn</a></li>
+                                <li><i class="fab fa-github"></i> <a href="https://github.com/Adarshpandey-007" target="_blank">GitHub</a></li>
+                            </ul>
+                        </div>
+                        <div class="about-modern-stats">
+                            <div><i class="fas fa-code"></i><span class="stat-number" data-count="600">0</span><span class="stat-label">Problems</span></div>
+                            <div><i class="fas fa-trophy"></i><span class="stat-number" data-count="65">0</span><span class="stat-label">Contests</span></div>
+                            <div><i class="fas fa-project-diagram"></i><span class="stat-number" data-count="15">0</span><span class="stat-label">Projects</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="timeline-section">
+        <div class="container">
+            <h2 class="section-title">My Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-type="education">
+                    <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="timeline-content">
+                        <h3>B.Tech Computer Science</h3>
+                        <span class="timeline-date">2022 – 2026</span>
+                        <p>Vishveshwarya Group of Institutions, Greater Noida</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-type="work">
+                    <div class="timeline-icon"><i class="fas fa-briefcase"></i></div>
+                    <div class="timeline-content">
+                        <h3>Vice President, CodeX Coding Club</h3>
+                        <span class="timeline-date">2024 – Present</span>
+                        <p>Organized hackathons, mentored juniors, led workshops.</p>
+                    </div>
+                </div>
+                <!-- Add more timeline-item blocks as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="category-title"><i class="fas fa-code"></i> Languages</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="category-title"><i class="fas fa-laptop-code"></i> Frameworks & Libraries</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">Tailwind CSS</span>
+                        <span class="skill-tag">Firebase</span>
+                        <span class="skill-tag">Next.js</span>
+                        <span class="skill-tag">Vite</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="category-title"><i class="fas fa-tools"></i> Tools & Platforms</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Netlify</span>
+                        <span class="skill-tag">Render</span>
+                        <span class="skill-tag">VS Code</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="category-title"><i class="fas fa-robot"></i> ML & Data</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">MATLAB</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="category-title"><i class="fas fa-user-friends"></i> Soft Skills</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Leadership</span>
+                        <span class="skill-tag">Teamwork</span>
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Debating</span>
+                        <span class="skill-tag">Anchoring</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Animated Skill Charts -->
+            <div class="skill-chart-grid">
+                <div class="skill-chart" data-percent="90">
+                    <svg viewBox="0 0 36 36">
+                        <path class="bg" d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="progress" />
+                    </svg>
+                    <div class="skill-chart-label">JavaScript</div>
+                    <div class="skill-chart-percent">90%</div>
+                </div>
+                <div class="skill-chart" data-percent="85">
+                    <svg viewBox="0 0 36 36">
+                        <path class="bg" d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="progress" />
+                    </svg>
+                    <div class="skill-chart-label">React</div>
+                    <div class="skill-chart-percent">85%</div>
+                </div>
+                <div class="skill-chart" data-percent="80">
+                    <svg viewBox="0 0 36 36">
+                        <path class="bg" d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="progress" />
+                    </svg>
+                    <div class="skill-chart-label">Node.js</div>
+                    <div class="skill-chart-percent">80%</div>
+                </div>
+                <div class="skill-chart" data-percent="75">
+                    <svg viewBox="0 0 36 36">
+                        <path class="bg" d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="progress" />
+                    </svg>
+                    <div class="skill-chart-label">Python</div>
+                    <div class="skill-chart-percent">75%</div>
+                </div>
+                <div class="skill-chart" data-percent="70">
+                    <svg viewBox="0 0 36 36">
+                        <path class="bg" d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="progress" />
+                    </svg>
+                    <div class="skill-chart-label">TypeScript</div>
+                    <div class="skill-chart-percent">70%</div>
+                </div>
+                <div class="skill-chart" data-percent="65">
+                    <svg viewBox="0 0 36 36">
+                        <path class="bg" d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="progress" />
+                    </svg>
+                    <div class="skill-chart-label">Express.js</div>
+                    <div class="skill-chart-percent">65%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials-section">
+    <div class="container">
+        <h2 class="section-title">Testimonials</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"Adarsh is a fantastic team player and a quick learner. His coding skills and leadership are top-notch!"</p>
+                <div class="testimonial-author">
+                    <img src="mentor1.jpg" alt="Mentor Photo" class="testimonial-avatar" loading="lazy">
+                    <div>
+                        <span class="testimonial-name">Dr. S. Sharma</span>
+                        <span class="testimonial-title">Professor, VGI</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"Working with Adarsh on our hackathon project was a pleasure. He brings energy and creativity to every team."</p>
+                <div class="testimonial-author">
+                    <img src="colleague1.jpg" alt="Colleague Photo" class="testimonial-avatar" loading="lazy">
+                    <div>
+                        <span class="testimonial-name">Priya Singh</span>
+                        <span class="testimonial-title">Teammate, CodeX Club</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more testimonial-card blocks as needed -->
+        </div>
+    </div>
+</section>
+
+    <!-- Blog Section -->
+<section id="blog" class="blog-section">
+    <div class="container">
+        <h2 class="section-title">Latest Articles</h2>
+        <div class="blog-grid">
+            <div class="blog-card">
+                <h3 class="blog-title">How I Built a Real-Time Bus Tracking App</h3>
+                <p class="blog-desc">A deep dive into the tech stack, challenges, and solutions behind my award-winning YourRoute project.</p>
+                <a href="https://your-blog-link.com/article1" class="blog-link" target="_blank">Read More</a>
+            </div>
+            <div class="blog-card">
+                <h3 class="blog-title">Getting Started with Competitive Programming</h3>
+                <p class="blog-desc">Tips, resources, and my personal journey from beginner to 600+ solved problems.</p>
+                <a href="https://your-blog-link.com/article2" class="blog-link" target="_blank">Read More</a>
+            </div>
+            <div class="blog-card">
+                <h3 class="blog-title">Mastering React for Modern Web Apps</h3>
+                <p class="blog-desc">My favorite patterns, libraries, and performance tips for building scalable React projects.</p>
+                <a href="https://your-blog-link.com/article3" class="blog-link" target="_blank">Read More</a>
+            </div>
+            <div class="blog-card">
+                <h3 class="blog-title">From Idea to MVP: My Hackathon Workflow</h3>
+                <p class="blog-desc">How I approach hackathons, from brainstorming to shipping a working prototype in 24 hours.</p>
+                <a href="https://your-blog-link.com/article4" class="blog-link" target="_blank">Read More</a>
+            </div>
+            <div class="blog-card">
+                <h3 class="blog-title">Deploying Full Stack Apps for Free</h3>
+                <p class="blog-desc">A guide to deploying Node.js, React, and static sites using Netlify, Render, and other free services.</p>
+                <a href="https://your-blog-link.com/article5" class="blog-link" target="_blank">Read More</a>
+            </div>
+            <!-- Add more blog-card blocks as needed -->
+        </div>
+    </div>
+</section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="react">React</button>
+                <button class="filter-btn" data-filter="ml">ML</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-category="react web">
+                    <div class="project-header">
+                        <span class="project-title">Peer-to-Peer Farmer Support Platform</span>
+                    </div>
+                    <div class="project-description">
+                        Full-stack web & mobile app for crop exchange, knowledge sharing, and real-time farmer support.<br>
+                        <b>Features:</b> Real-time chat, crop bidding, price negotiation, Google Maps, Firebase sync, direct agri-supply purchase.<br>
+                        <b>Planned:</b> Crop scanning, live commodity rates, MSP data.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Express.js</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                        <span class="tech-tag">Google Maps API</span>
+                    </div>
+                </div>
+                <div class="project-card" data-category="react web">
+                    <div class="project-header">
+                        <span class="project-title">YourRoute</span>
+                    </div>
+                    <div class="project-description">
+                        Real-time tracking platform for Delhi loop buses to ease metro crowding (12,000+ users).<br>
+                        <b>Features:</b> Responsive React app, Google Maps integration, live bus/metro status.<br>
+                        <b>Achievement:</b> Top 10 in Google Developer Student Challenge (2000 teams).
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Material UI</span>
+                        <span class="tech-tag">ExpressJS</span>
+                        <span class="tech-tag">C</span>
+                        <span class="tech-tag">Azure</span>
+                    </div>
+                </div>
+                <div class="project-card" data-category="react ml">
+                    <div class="project-header">
+                        <span class="project-title">HealthEd Pro</span>
+                    </div>
+                    <div class="project-description">
+                        AI agent for personalized mental health assessment & self-care guidance.<br>
+                        <b>Features:</b> Gemini API, custom tests for 12+ disorders, real-time emotion detection (TensorFlow.js, WebRTC).<br>
+                        <b>Award:</b> 1st Prize for innovation at university hackathon (250+ teams).
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Express.js</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Gemini API</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                </div>
+                <div class="project-card" data-category="ml">
+                    <div class="project-header">
+                        <span class="project-title">Drone Detection using ML & Sensor Fusion</span>
+                    </div>
+                    <div class="project-description">
+                        Ongoing research: Real-time drone detection using infrared, radar, and acoustic sensor fusion (92%+ accuracy).<br>
+                        <b>Features:</b> ML pipeline for Jetson Xavier, multi-sensor input, RF-jamming, laser interference, hard kill solutions.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">ROS Noetic</span>
+                        <span class="tech-tag">MATLAB</span>
+                        <span class="tech-tag">Jetson Xavier</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <h2 class="section-title">Achievements</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <h3>Vice President, CodeX Coding Club</h3>
+                    <p>Founded and led the official college coding club with 100+ active members. Organized hackathons, workshops, and mentored juniors in full-stack development.</p>
+                    <span class="achievement-date">Nov 2024 – July 2025</span>
+                </div>
+                <div class="achievement-card">
+                    <h3>Top 10, Google Developer Student Challenge</h3>
+                    <p>YourRoute project selected in the top 10 out of 2000 teams worldwide for real-time public transport tracking innovation.</p>
+                    <span class="achievement-date">Dec 2024</span>
+                </div>
+                <div class="achievement-card">
+                    <h3>1st Prize, University Hackathon (HealthEd Pro)</h3>
+                    <p>Won 1st place out of 250+ teams for building an AI-powered mental health assessment platform using Gemini API and TensorFlow.js.</p>
+                    <span class="achievement-date">Nov 2024</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-info">
+                <button class="btn btn-primary" id="email-btn"><i class="fas fa-envelope"></i> Email</button>
+                <button class="btn btn-secondary" id="call-btn"><i class="fas fa-phone"></i> Call</button>
+                <button class="btn btn-primary" id="whatsapp-btn"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+                <button class="btn btn-secondary" id="telegram-btn"><i class="fab fa-telegram"></i> Telegram</button>
+                <button class="btn btn-primary" id="linkedin-btn"><i class="fab fa-linkedin"></i> LinkedIn</button>
+                <a href="https://github.com/Adarshpandey-007" class="btn btn-secondary" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+            <form id="contact-form" class="contact-form" action="https://formspree.io/f/yourcode" method="POST" enctype="multipart/form-data">
+                <input type="text" name="name" placeholder="Your Name" autocomplete="name" required aria-label="Your Name">
+                <input type="email" name="email" placeholder="Your Email" autocomplete="email" required aria-label="Your Email">
+                <textarea name="message" rows="4" placeholder="Your Message" autocomplete="off" required aria-label="Your Message"></textarea>
+                <div class="form-group">
+                    <input type="file" name="attachment" id="attachment" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" />
+                    <label for="attachment">Attach a file (optional)</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+            <div id="form-message"></div>
+            <br>
+            <div id="contact-map" style="width:100%;height:250px;border-radius:10px;"></div>
+                
+    </section>
+
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>
+                &copy; 2025 Adarsh Pandey &mdash; All Rights Reserved.
+            </p>
+            <div class="footer-socials">
+                <a href="mailto:adarshpandey6364@gmail.com" title="Email" aria-label="Email">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                </a>
+                <a href="https://wa.me/916306747203" target="_blank" title="WhatsApp" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                </a>
+                <a href="https://t.me/adarshpandey007" target="_blank" title="Telegram" aria-label="Telegram">
+                    <i class="fab fa-telegram" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/adarsh-pandey-314074241" target="_blank" title="LinkedIn" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="https://github.com/Adarshpandey-007" target="_blank" title="GitHub" aria-label="GitHub">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="./main.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</body>
+</html>
